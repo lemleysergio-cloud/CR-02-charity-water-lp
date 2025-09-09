@@ -1,47 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>A Gift of Pure Impact</title>
+  <!-- Beginner‑friendly: single file with HTML + CSS only -->
+  <style>
+    /* === Fonts (free Google Fonts) === */
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;600;700&display=swap');
+
+    /* === Color tokens inspired by the design === */
+    :root{
+      --brand-text:#111418;
+      --brand-muted:#3c4a57;
+      --brand-yellow:#f7c948; /* CTA */
+      --brand-yellow-dark:#e0b63f;
+      --page-bg:#ffffff;
+      --overlay: rgba(0,0,0,.35);
+    }
+
+    /* === Resets / globals === */
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; background:var(--page-bg); color:var(--brand-text);
+      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height:1.6; font-size:clamp(15px, 1.9vw, 17px);
+    }
+    img{max-width:100%; height:auto; display:block}
+    a{color:inherit}
+
+    /* === Header === */
+    .site-header{
+      position:relative; z-index:10; /* sit above hero image */
+      background:#fff; border-bottom:1px solid #f0f2f4;
+    }
+    .container{max-width:1100px; margin:0 auto; padding:clamp(12px,3vw,20px);}
+    .header-inner{display:flex; align-items:center; justify-content:space-between; gap:16px}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:700}
+    .brand .logo{width:24px; height:24px; display:grid; place-items:center; border-radius:6px; background:var(--brand-yellow); font-size:14px}
+    .brand-name{font-family:"Playfair Display", serif; letter-spacing:0.3px}
+
+    .btn{display:inline-block; padding:.6rem 1rem; border-radius:10px; text-decoration:none; font-weight:700}
+    .btn-primary{background:var(--brand-yellow); color:#111}
+    .btn-primary:hover{background:var(--brand-yellow-dark)}
+    .btn-primary:focus-visible{outline:3px solid #111; outline-offset:2px}
+
+    /* === Hero === */
+    .hero{position:relative; min-height:62vh; display:grid;}
+    .hero::before{ /* background image */
+      content:""; position:absolute; inset:0;
+      background:url("https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=2070&auto=format&fit=crop") center/cover no-repeat;
+      /* ↑ Placeholder: replace with your brand image later */
+    }
+    .hero::after{ /* subtle dark overlay to help text legibility */
+      content:""; position:absolute; inset:0; background:var(--overlay);
+    }
+    .hero-content{position:relative; z-index:1; display:grid; align-content:center;}
+    .hero-grid{display:grid; gap:clamp(16px,2.5vw,24px)}
+    .eyebrow{font-weight:600; color:#fff; opacity:.9}
+    .hero h1{
+      font-family:"Playfair Display", serif;
+      font-weight:700;
+      color:#fff; line-height:1.05; margin:0;
+      font-size: clamp(2rem, 6vw, 4rem); /* big, but fluid */
+      text-wrap:balance;
+    }
+    .hero p{color:#f1f5f9; max-width:48ch; margin:0}
+    .hero .cta-wrap{margin-top:6px}
+    .btn-hero{background:var(--brand-yellow); color:#111; padding:.8rem 1.1rem; border-radius:12px}
+    .btn-hero:hover{background:var(--brand-yellow-dark)}
+
+    /* === Section: social proof / impact (optional starter) === */
+    .impact{padding:clamp(24px,5vw,48px) 0}
+    .impact-cards{display:grid; gap:16px}
+    .card{border:1px solid #ecf0f3; border-radius:14px; padding:16px 18px; background:#fff}
+    .card h3{margin:.2rem 0; font-family:"Playfair Display", serif; font-size:1.25rem}
+    .muted{color:var(--brand-muted)}
+
+    /* === Footer (simple) === */
+    footer{border-top:1px solid #ecf0f3; color:#5a6674}
+
+    /* === Responsive tweak at 600px and up === */
+    @media (min-width:600px){
+      .hero{min-height:70vh}
+      .hero-grid{grid-template-columns:1fr 1fr; align-items:center}
+      .hero p{font-size:1.05rem}
+      .impact-cards{grid-template-columns: repeat(3, 1fr)}
+    }
+  </style>
 </head>
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
-    <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#home" aria-label="Homepage">
+        <span class="logo">💧</span>
+        <span class="brand-name">charity: water</span>
+      </a>
+      <a href="#donate" class="btn btn-primary">Donate</a>
+    </div>
+  </header>
 
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
-
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="container hero-content">
+      <div class="hero-grid">
+        <div></div> <!-- left column intentionally empty to mimic composition -->
+        <div>
+          <div class="eyebrow">A Gift of Pure Impact</div>
+          <h1>A Gift of Pure Impact</h1>
+          <p>Every dollar you give becomes a lifetime of clean water. Our 100% model is our unbreakable promise that nothing gets in the way of your generosity.</p>
+          <div class="cta-wrap">
+            <a href="#donate" class="btn btn-hero">Give Clean Water</a>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
-    </section>
+  <!-- Optional starter section: impact cards -->
+  <section class="container impact" id="impact">
+    <div class="impact-cards">
+      <article class="card">
+        <h3>100% Model</h3>
+        <p class="muted">We send every public donation straight to water projects.</p>
+      </article>
+      <article class="card">
+        <h3>Local Partners</h3>
+        <p class="muted">We fund and support experienced, community-led teams.</p>
+      </article>
+      <article class="card">
+        <h3>Proven Projects</h3>
+        <p class="muted">We track and share the results so you can see your impact.</p>
+      </article>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container" style="padding:18px 0">© 2025 • Clean Water Initiative</div>
+  </footer>
 </body>
 </html>
