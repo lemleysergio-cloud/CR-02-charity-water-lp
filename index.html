@@ -7,13 +7,13 @@
   <!-- Beginner‑friendly: single file with HTML + CSS only -->
   <style>
     /* === Fonts (free Google Fonts) === */
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;600;700&display=swap');
+    @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
 
     /* === Color tokens inspired by the design === */
     :root{
       --brand-text:#111418;
       --brand-muted:#3c4a57;
-      --brand-yellow:#f7c948; /* CTA */
+      --brand-yellow:#FFC907; /* CTA */
       --brand-yellow-dark:#e0b63f;
       --page-bg:#ffffff;
       --overlay: rgba(0,0,0,.35);
@@ -50,7 +50,7 @@
     .hero{position:relative; min-height:62vh; display:grid;}
     .hero::before{ /* background image */
       content:""; position:absolute; inset:0;
-      background:url("https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=2070&auto=format&fit=crop") center/cover no-repeat;
+      background:url(img/Madagascar_2019_CG-4246-2.jpg) center/cover no-repeat;
       /* ↑ Placeholder: replace with your brand image later */
     }
     .hero::after{ /* subtle dark overlay to help text legibility */
@@ -95,9 +95,9 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="#home" aria-label="Homepage">
-        <span class="logo">💧</span>
-        <span class="brand-name">charity: water</span>
-      </a>
+  <img src="img/cw_logo-2.png" alt="charity: water logo" class="top-logo">
+</a>
+
       <a href="#donate" class="btn btn-primary">Donate</a>
     </div>
   </header>
